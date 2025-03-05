@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <head>
 <body>
+
     <h1>Song Manager</h1>
     <div id="greeting"></div>
-    
+ 
+    <h3>Add songs</h3>
+    <form id="addSongForm">
+        <input type="text" id="songName" placeholder="Enter Song Name" required>
+        <input type="text" id="artistName" placeholder="Enter Artist Name" required>
+        <input type="text" id="songYear" placeholder="Enter Song year" required>
+        <input type="number" id="songRating" placeholder="Enter Song rating" required>
+        <button type="submit">Add Song</button>
+    </form>
 
-</body>
+    <h3>Delete songs</h3>
+    <form id="deleteSongForm">
+        <input type="text" id="songName" placeholder="Enter Song Name" required>
+        <button type="submit">Delete Song</button>
+    </form>
+
 
 <script src="songManager.bundle.js"></script>
-
+</body>
 </head>
