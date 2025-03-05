@@ -1,4 +1,4 @@
-import { signUp } from "./auth"; 
+import { signUp, logIn, logOut } from "./auth"; 
 
 console.log("index message");
 
@@ -13,4 +13,18 @@ signupform.addEventListener("submit", (event) => {
     const password = document.getElementById("signuppassword").value;
     
     signUp(firstname, lastname, email, password);
+});
+
+const logInForm = document.querySelector("#loginForm");
+logInForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginpassword").value;
+    logIn(email, password);
+});
+
+const logOutForm = document.querySelector("#logoutForm");
+logOutForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    logOut();
 });

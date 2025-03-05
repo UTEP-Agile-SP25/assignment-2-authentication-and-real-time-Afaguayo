@@ -9,7 +9,8 @@ module.exports = {
 
     index: './src/index.js',
     auth: './src/auth.js',
-    config: './src/config.js'
+    config: './src/config.js',
+    songmanager: './src/songManager.js'
     },
     
      output: {
