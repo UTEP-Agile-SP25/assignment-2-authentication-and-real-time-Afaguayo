@@ -1,6 +1,6 @@
 import { signUp,logOut, login, onAuthStateChanged } from "./auth";
 import { db } from "./config";
-import { doc, setDoc, collection,deleteDoc,onSnapshot } from "firebase/firestore";
+import { doc, setDoc, collection,deleteDoc,onSnapshot, docId } from "firebase/firestore";
 
 const saveSong = async function(){
     const songName = document.getElementById("songName").value;
@@ -40,7 +40,7 @@ addSong.addEventListener("submit", (event) => {
 const deletesong = document.querySelector("#deleteSongForm");
 deletesong.addEventListener("submit", (event) => {
     event.preventDefault();
-    const songName = document.getElementById("songName").value;
+    const songName = document.getElementById("songID").value;
     deleteSong("songs", songName);
 });
 
@@ -54,3 +54,18 @@ const deleteSong = async function(collection, docId){
     }
 }
 
+const songTableBody = document.getElementById("songTableBody");
+onSnapshot(collection(db, "songs"), (snapshot) => {
+    songTableBody.innerHTML = "";
+    snapshot.forEach((doc) => {
+        const song = doc.data();
+        const row = `<tr>
+                        <td>${song.songName}</td>
+                        <td>${song.artistName}</td>
+                        <td>${song.songYear}</td>
+                        <td>${song.songRating}</td>
+                        <td>${new Date(song.time.seconds * 1000).toLocaleString()}</td>
+                    </tr>`;
+        songTableBody.innerHTML += row;
+    });
+});

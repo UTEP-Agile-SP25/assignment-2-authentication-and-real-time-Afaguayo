@@ -16,10 +16,28 @@
 
     <h3>Delete songs</h3>
     <form id="deleteSongForm">
-        <input type="text" id="songName" placeholder="Enter Song Name" required>
+
+        <input type="text" id="songID" placeholder="Enter Song" required>
         <button type="submit">Delete Song</button>
     </form>
 
+
+
+    <h3>Song List</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Song Name</th>
+                <th>Artist Name</th>
+                <th>Year</th>
+                <th>Rating</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="songTableBody">
+        </tbody>
+    </table>
+    
 
 <script src="songManager.bundle.js"></script>
 </body>
