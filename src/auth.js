@@ -28,9 +28,10 @@ async function fetchUserData(userID) {
 export async function signUp(firstName, lastName, email, password) {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        
         console.log("User signed up:", userCredential.user.email);
         console.log("User ID:", userCredential.user.uid);
-
+        
         const userRef = doc(db, "users", userCredential.user.uid);
 
         await setDoc(userRef, {
@@ -38,7 +39,7 @@ export async function signUp(firstName, lastName, email, password) {
             lastName: lastName,
             timestamp: new Date()
         });
-
+        window.location.href = "songManager.html";
         return userCredential.user;
     } catch(error) {
         console.error("Error during signup:", error);
